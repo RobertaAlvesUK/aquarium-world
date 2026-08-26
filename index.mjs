@@ -96,6 +96,18 @@ app.get("/cinema", (req, res) => {
   });
 });
 
+// Define the Plan Your Visit page route
+app.get("/visit", async (req, res) => {
+  // Get weekly opening hours from the database
+  const openingHours = await all(
+    "SELECT * FROM opening_hours ORDER BY display_order"
+  );
+
+  // Render the page with opening hours data
+  res.render("visit", { openingHours });
+});
+
+
 // Define dynamic routes for aquarium zones
 app.get("/zone/:slug", async (req, res) => {
   const zone = await get(

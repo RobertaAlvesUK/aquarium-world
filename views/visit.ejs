@@ -1,0 +1,20 @@
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<!-- Plan Your Visit page content -->
+<section class="visit-page">
+  <h1>Plan Your Visit</h1>
+  <p>Everything you need to know before visiting Aquarium World.</p>
+
+    <h2>Opening Times</h2>
+
+  <!-- Display weekly opening hours from the database -->
+  <div class="opening-times-box">
+    <% openingHours.forEach(hour => { %>
+      <p><strong><%= hour.day_name %>:</strong> <%= hour.opening_time %>–<%= hour.closing_time %></p>
+    <% }) %>
+  </div>
+
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>

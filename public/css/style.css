@@ -323,3 +323,19 @@ footer img {
     max-width: 100%;
   }
 }
+
+/* ===== PLAN YOUR VISIT ===== */
+
+/* Style the weekly opening times box */
+.opening-times-box {
+  max-width: 520px;
+  padding: 1rem;
+  border: 1px solid #b7e8e5;
+  border-radius: 8px;
+  background-color: #f0fffe;
+}
+
+/* Space each opening times row */
+.opening-times-box p {
+  margin: 0.6rem 0;
+}
