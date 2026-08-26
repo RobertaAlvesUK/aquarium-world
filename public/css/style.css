@@ -342,3 +342,27 @@ footer img {
 .opening-times-box p {
   margin: 0.6rem 0;
 }
+
+/* ===== SKIP LINK ===== */
+
+/* Hide the skip link until it receives keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #063b4b;
+  color: white;
+  z-index: 1000;
+}
+
+/* Show the skip link when a keyboard user presses Tab */
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Remove the large outline after the skip link moves focus */
+main:focus {
+  outline: none;
+}
+
