@@ -4,6 +4,7 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f0fffe;
@@ -140,6 +141,8 @@ footer img {
 /* ===== HOMEPAGE HERO ===== */
 /* Create the homepage hero banner */
 .hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   display: flex;
   align-items: flex-start;
   justify-content: center;
