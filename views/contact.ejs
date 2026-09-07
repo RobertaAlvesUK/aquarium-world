@@ -7,11 +7,11 @@
     <!-- Show this content after a successful submission -->
     <h1>Message Sent</h1>
     <p class="form-success"><%= successMessage %></p>
-    <p>Our AquaVerse team will reply as soon as possible.</p>
+    <p>Our Aquarium World team will reply as soon as possible.</p>
   <% } else { %>
     <!-- Show the contact form before submission -->
     <h1>Contact Us</h1>
-    <p>Have a question about AquaVerse? Send us a message and our team will be happy to help.</p>
+    <p>Have a question about Aquarium World? Send us a message and our team will be happy to help.</p>
 
     <!-- Show an error if form data is missing -->
     <% if (errorMessage) { %>
@@ -22,18 +22,23 @@
 <p id="client-message" aria-live="polite"></p>
 
 <form id="contact-form" action="/contact" method="POST" novalidate>
+  <fieldset>
+    <legend>Send us a message</legend>
+    <p id="contact-hint">All fields are required.</p>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" aria-describedby="contact-hint" required>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" aria-describedby="contact-hint" required>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="6" aria-describedby="contact-hint" required></textarea>
 
-      <button type="submit">Send Message</button>
-    </form>
+    <button type="submit">Send Message</button>
+  </fieldset>
+</form>
+
   <% } %>
 </section>
 
