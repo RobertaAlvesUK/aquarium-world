@@ -1,0 +1,20 @@
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<!-- Animal search page content -->
+<section class="search-page">
+  <h1>Animal Search</h1>
+  <p>Search for an aquarium animal to discover which zone it belongs to.</p>
+
+  <label for="animal-search">Search aquarium animals</label>
+  <input type="search" id="animal-search" placeholder="Try shark or clownfish" autocomplete="off">
+
+  <!-- Announce search status updates to screen-reader users -->
+  <p id="search-status" aria-live="polite"></p>
+
+  <!-- JavaScript will add matching results here -->
+  <ul id="search-results"></ul>
+</section>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>

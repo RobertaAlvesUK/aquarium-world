@@ -112,6 +112,33 @@ app.get("/guess-the-fish", (req, res) => {
   res.render("guess-the-fish");
 });
 
+// Define the Animal Search page route
+app.get("/animal-search", (req, res) => {
+  res.render("animal-search");
+});
+
+// Return matching aquarium animals as JSON data
+app.get("/api/exhibits", async (req, res) => {
+  const searchTerm = req.query.query || "";
+
+  // Return no results when the search box is empty
+  if (searchTerm.trim() === "") {
+    res.json([]);
+    return;
+  }
+
+  const exhibits = await all(
+    `SELECT exhibits.name, exhibits.description, zones.name AS zone_name, zones.slug AS zone_slug
+     FROM exhibits
+     JOIN zones ON exhibits.zone_id = zones.id
+     WHERE exhibits.name LIKE ?
+     ORDER BY exhibits.name`,
+    [`%${searchTerm}%`]
+  );
+
+  res.json(exhibits);
+});
+
 
 // Define dynamic routes for aquarium zones
 app.get("/zone/:slug", async (req, res) => {

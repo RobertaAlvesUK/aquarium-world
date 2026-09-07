@@ -409,3 +409,57 @@ main:focus {
   border-color: #087f7b;
   color: #ffffff;
 }
+
+/* ===== ANIMAL SEARCH ===== */
+
+/* Style the animal search input */
+.search-page input[type="search"] {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #087f7b;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Show a clear focus style for keyboard users */
+.search-page input[type="search"]:focus {
+  outline: 3px solid #0abab5;
+  outline-offset: 2px;
+}
+
+/* Style the search status message */
+#search-status {
+  font-weight: bold;
+  color: #063b4b;
+}
+
+/* Remove default list spacing */
+#search-results {
+  max-width: 520px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Style each matching animal result */
+#search-results li {
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 5px solid #0abab5;
+  background-color: #f0fffe;
+}
+
+/* Style links inside animal search results */
+#search-results a {
+  color: #063b4b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#search-results a:hover,
+#search-results a:focus {
+  color: #087f7b;
+  text-decoration: underline;
+}

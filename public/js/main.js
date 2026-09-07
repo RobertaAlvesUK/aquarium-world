@@ -151,3 +151,87 @@ if (answerOne) {
   });
 }
 
+// Find the Animal Search page elements
+// Find the Animal Search page elements
+const animalSearch = document.getElementById("animal-search");
+const searchStatus = document.getElementById("search-status");
+const searchResults = document.getElementById("search-results");
+
+// Search animals while the visitor types
+if (animalSearch) {
+  animalSearch.addEventListener("input", async () => {
+    const query = animalSearch.value.trim();
+
+    // Clear results when the search box is empty
+    if (query === "") {
+      searchStatus.textContent = "";
+      searchResults.innerHTML = "";
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/exhibits?query=${encodeURIComponent(query)}`);
+
+      if (!response.ok) {
+        throw new Error("Search request failed.");
+      }
+
+      const exhibits = await response.json();
+      searchResults.innerHTML = "";
+
+      if (exhibits.length === 0) {
+        searchStatus.textContent = "No animals found.";
+      } else {
+        searchStatus.textContent = `${exhibits.length} animal(s) found.`;
+
+        exhibits.forEach((exhibit) => {
+          const resultItem = document.createElement("li");
+          resultItem.textContent = `${exhibit.name} — ${exhibit.zone_name}`;
+          searchResults.appendChild(resultItem);
+        });
+      }
+    } catch (error) {
+      searchStatus.textContent = "Search is unavailable. Please try again.";
+      searchResults.innerHTML = "";
+    }
+  });
+}
+
+
+// Search animals while the visitor types
+if (animalSearch) {
+  animalSearch.addEventListener("input", async () => {
+    const query = animalSearch.value.trim();
+
+    // Clear results when the search box is empty
+    if (query === "") {
+      searchStatus.textContent = "";
+      searchResults.innerHTML = "";
+      return;
+    }
+
+    const response = await fetch(`/api/exhibits?query=${encodeURIComponent(query)}`);
+    const exhibits = await response.json();
+
+    searchResults.innerHTML = "";
+
+    if (exhibits.length === 0) {
+      searchStatus.textContent = "No animals found.";
+    } else {
+      searchStatus.textContent = `${exhibits.length} animal(s) found.`;
+
+      exhibits.forEach((exhibit) => {
+    const resultItem = document.createElement("li");
+    const resultLink = document.createElement("a");
+
+    resultLink.href = `/zone/${exhibit.zone_slug}`;
+    resultLink.textContent = `${exhibit.name} — ${exhibit.zone_name}`;
+
+    resultItem.appendChild(resultLink);
+    searchResults.appendChild(resultItem);
+
+
+      });
+    }
+  });
+}
