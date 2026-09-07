@@ -107,6 +107,11 @@ app.get("/visit", async (req, res) => {
   res.render("visit", { openingHours });
 });
 
+// Define the Guess the Fish page route
+app.get("/guess-the-fish", (req, res) => {
+  res.render("guess-the-fish");
+});
+
 
 // Define dynamic routes for aquarium zones
 app.get("/zone/:slug", async (req, res) => {

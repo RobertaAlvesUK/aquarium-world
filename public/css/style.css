@@ -366,3 +366,46 @@ main:focus {
   outline: none;
 }
 
+/* ===== GUESS THE FISH ===== */
+
+/* Style the quiz answer buttons */
+.quiz-card button {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border: 2px solid #087f7b;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #063b4b;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Highlight a quiz answer on hover or keyboard focus */
+.quiz-card button:hover,
+.quiz-card button:focus {
+  background-color: #0abab5;
+  color: #063b4b;
+}
+/* Hide quiz buttons that use the hidden attribute */
+.quiz-card button[hidden] {
+  display: none;
+}
+/* Style the button that moves to the next quiz question */
+#next-question {
+  background-color: #063b4b;
+  border-color: #063b4b;
+  color: #ffffff;
+  text-align: center;
+}
+
+#next-question:hover,
+#next-question:focus {
+  background-color: #087f7b;
+  border-color: #087f7b;
+  color: #ffffff;
+}

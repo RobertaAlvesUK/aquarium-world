@@ -1,0 +1,27 @@
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<!-- Guess the Fish activity page content -->
+<section class="game-page">
+  <h1>Guess the Fish!</h1>
+  <p>Test your aquarium knowledge by choosing the correct answer.</p>
+
+  <!-- First quiz question and answer buttons -->
+  <section class="quiz-card">
+    <p id="question-number">Question 1 of 3</p>
+    <p id="quiz-score">Score: 0</p>
+    <h2 id="quiz-question">Which fish is known for its orange colour and white stripes?</h2>
+
+
+    <button type="button" id="answer-one">Great white shark</button>
+    <button type="button" id="answer-two">Clownfish</button>
+    <button type="button" id="answer-three">Seahorse</button>
+
+    <!-- Show quiz feedback after an answer is selected -->
+    <p id="quiz-feedback" aria-live="polite"></p>
+    <button type="button" id="next-question" hidden>Next Question</button>
+  </section>
+</section>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>
