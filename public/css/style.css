@@ -463,3 +463,67 @@ main:focus {
   color: #087f7b;
   text-decoration: underline;
 }
+
+/* ===== HOMEPAGE FEATURE CARDS ===== */
+
+/* Arrange the two homepage feature cards */
+.feature-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Style each clickable feature card */
+.feature-card {
+  flex: 1 1 260px;
+  max-width: 360px;
+  min-height: 230px;
+  padding: 1.5rem;
+  border: 2px solid #087f7b;
+  border-radius: 8px;
+  background-color: #f0fffe;
+  color: #063b4b;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Style the decorative card symbol */
+.feature-icon {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+/* Style the text link inside each card */
+.feature-link-text {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  background-color: #063b4b;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Show clear feedback for mouse and keyboard users */
+.feature-card:hover,
+.feature-card:focus {
+  background-color: #d8f7f5;
+  outline: 3px solid #0abab5;
+  outline-offset: 3px;
+}
+
+/* Give the homepage feature area a lighter section style */
+.home-features {
+  padding: 1.5rem 0 2rem;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* Keep the feature heading aligned with the cards */
+.home-features h2 {
+  margin-top: 0;
+}
