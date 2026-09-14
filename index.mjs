@@ -71,30 +71,52 @@ app.get("/shark-dive", (req, res) => {
   res.render("experience", {
     title: "Shark Dive",
     description: "Learn about the sharks that live at Aquarium World and the care they receive from our expert team.",
+    imagePath: "/images/shark-dive/2.png",
+    imageAlt: "Shark Dive experience at Aquarium World",
     details: "This experience introduces visitors to shark habitats, feeding routines and conservation. It is designed to help visitors understand these important ocean animals.",
     information: "Please speak to an Aquarium World team member on arrival for current safety guidance and experience availability."
   });
 });
+
 
 // Define the Underwater Tunnel page route
 app.get("/tunnel", (req, res) => {
   res.render("experience", {
     title: "Underwater Tunnel",
     description: "Walk through our underwater tunnel and see aquarium animals swimming all around you.",
+    imagePath: "/images/underwater-tunnel/6.png",
+    imageAlt: "Visitors walking through the Aquarium World underwater tunnel",
     details: "The tunnel gives visitors a clear view of colourful fish, rays and larger ocean animals as they move through the aquarium habitat.",
     information: "The Underwater Tunnel is included in the normal visitor route and is suitable for visitors of all ages."
   });
 });
+
 
 // Define the 4D Cinema page route
 app.get("/cinema", (req, res) => {
   res.render("experience", {
     title: "4D Cinema",
     description: "Experience the ocean through an immersive short film in the Aquarium World 4D Cinema.",
+    imagePath: "/images/cinema/3.png",
+    imageAlt: "Aquarium World 4D Cinema experience",
     details: "The cinema combines ocean footage, sound and sensory effects to help visitors discover marine habitats in an engaging way.",
     information: "Please check the daily information board inside Aquarium World for the current cinema schedule."
   });
 });
+
+
+// Define the Ocean Lodge experience page route
+app.get("/ocean-lodge", (req, res) => {
+  res.render("experience", {
+    title: "Ocean Lodge Hotel",
+    description: "Stay beside the underwater world at Aquarium World’s Ocean Lodge Hotel.",
+    imagePath: "/images/ocean-lodge/7.png",
+    imageAlt: "Ocean Lodge Hotel experience",
+    details: "This experience gives visitors the opportunity to relax beside the aquarium environment and discover the atmosphere of marine habitats after their visit.",
+    information: "Please speak to the Aquarium World team for general information about the Ocean Lodge experience. This page does not provide booking, prices or reservations."
+  });
+});
+
 
 // Define the Plan Your Visit page route
 app.get("/visit", async (req, res) => {

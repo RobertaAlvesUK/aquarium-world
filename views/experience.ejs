@@ -6,6 +6,14 @@
   <h1><%= title %></h1>
   <p class="experience-intro"><%= description %></p>
 
+  <!-- Show an image only for experiences that provide one -->
+  <% if (typeof imagePath !== 'undefined' && imagePath) { %>
+    <img
+      class="experience-image"
+      src="<%= imagePath %>"
+      alt="<%= imageAlt %>">
+  <% } %>
+
   <h2>What to Expect</h2>
   <p><%= details %></p>
 
