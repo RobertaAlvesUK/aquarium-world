@@ -1,6 +1,35 @@
 <!-- Include the shared header partial -->
 <%- include('partials/header') %>
 
+<%
+  // Store local images for the animals in each aquarium zone
+  const exhibitImages = {
+    "coral-reef": {
+      "Blacktip Reef Shark": "/images/coral-reef/blacktip-reef-shark.png",
+      "Reef Ray": "/images/coral-reef/reef-ray.png",
+      "Clownfish": "/images/coral-reef/clownfish.png"
+    },
+    "deep-sea": {
+      "Giant Squid": "/images/deep-sea/giant-squid.png",
+      "Giant Pacific Octopus": "/images/deep-sea/giant-pacific-octopus.png",
+      "Moon Jellyfish": "/images/deep-sea/moon-jellyfish.png",
+      "Lanternfish": "/images/deep-sea/lanternfish.png"
+    },
+    "rockpools": {
+      "Shore Crab": "/images/rockpools/shore-crab.png",
+      "Starfish": "/images/rockpools/starfish.png",
+      "Sea Urchin": "/images/rockpools/sea-urchin.png",
+      "Queen Angelfish": "/images/rockpools/queen-angelfish.png",
+      "Seahorse": "/images/rockpools/seahorse.png"
+    },
+    "freshwater": {
+      "River Turtle": "/images/freshwater/river-turtle.png",
+      "Freshwater River Fish": "/images/freshwater/freshwater-river-fish.png",
+      "Poison Dart Frog": "/images/freshwater/poison-dart-frog.png"
+    }
+  };
+%>
+
 <!-- Display information for one aquarium zone -->
 <section class="zone-page">
   <h1><%= zone.name %></h1>
@@ -11,9 +40,24 @@
 
   <div class="exhibit-grid">
     <% exhibits.forEach(exhibit => { %>
+      <%
+        // Find the matching image for this database exhibit
+        const zoneExhibitImages = exhibitImages[zone.slug] || {};
+        const exhibitImage = zoneExhibitImages[exhibit.name];
+      %>
+
       <article class="exhibit-card">
         <h3><%= exhibit.name %></h3>
         <p><%= exhibit.description %></p>
+
+        <!-- Show the local animal image when one is available -->
+        <% if (exhibitImage) { %>
+          <img
+            class="exhibit-image"
+            src="<%= exhibitImage %>"
+            alt="<%= exhibit.name %> in the <%= zone.name %> aquarium exhibit"
+          >
+        <% } %>
       </article>
     <% }) %>
   </div>

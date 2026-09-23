@@ -121,7 +121,7 @@ await run(
 
 await run(
   "INSERT INTO exhibits (zone_id, name, description) VALUES (?, ?, ?)",
-  [rockpools.lastID, "Common Octopus", "A curious octopus that can change colour and hide among coastal rocks."]
+  [rockpools.lastID, "Queen Angelfish", "A brightly coloured tropical fish with distinctive blue and yellow markings."]
 );
 
 await run(

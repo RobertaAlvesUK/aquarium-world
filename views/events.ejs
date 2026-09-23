@@ -1,0 +1,43 @@
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<!-- Aquarium Events page -->
+<section class="events-page">
+  <h1>Aquarium Events</h1>
+  <p>Discover special events, family activities and conservation experiences at Aquarium World.</p>
+
+  <!-- Visitors can select an event year and category -->
+  <div class="event-controls">
+    <div>
+      <label for="year-filter">Choose a year</label>
+      <select id="year-filter">
+        <option value="2026" selected>2026</option>
+        <option value="2025">2025</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="category-filter">Filter by category</label>
+      <select id="category-filter">
+        <option value="">All categories</option>
+        <option value="Conservation Workshop">Conservation Workshops</option>
+        <option value="After-Dark Tour">After-Dark Tours</option>
+        <option value="Family Activity">Family Activities</option>
+        <option value="Educational Talk">Educational Talks</option>
+        <option value="Seasonal Celebration">Seasonal Celebrations</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Announce AJAX loading and filtering results to screen-reader users -->
+  <p id="events-status" aria-live="polite">Loading events...</p>
+
+  <!-- JavaScript adds matching event cards here -->
+  <div id="events-list"></div>
+</section>
+
+<!-- Load JavaScript used only by the Events page -->
+<script src="/js/events.js"></script>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>

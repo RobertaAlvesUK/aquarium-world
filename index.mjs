@@ -139,6 +139,12 @@ app.get("/animal-search", (req, res) => {
   res.render("animal-search");
 });
 
+// Define the Aquarium Events page route
+app.get("/events", (req, res) => {
+  res.render("events");
+});
+
+
 // Return matching aquarium animals as JSON data
 app.get("/api/exhibits", async (req, res) => {
   const searchTerm = req.query.query || "";
@@ -161,6 +167,33 @@ app.get("/api/exhibits", async (req, res) => {
   res.json(exhibits);
 });
 
+// Return filtered Aquarium World events as JSON data
+app.get("/api/events", async (req, res) => {
+  const selectedYear = Number(req.query.year) || 2026;
+  const selectedCategory = req.query.category || "all";
+
+  let sql = `
+    SELECT id, title, event_year, event_date, category, summary
+    FROM events
+    WHERE event_year = ?
+  `;
+
+  const parameters = [selectedYear];
+
+  // Filter by category only when a category is selected
+  if (selectedCategory !== "all") {
+    sql += " AND category = ?";
+    parameters.push(selectedCategory);
+  }
+
+  sql += " ORDER BY event_date";
+
+  // Get matching events from the SQLite database
+  const events = await all(sql, parameters);
+
+  // Send event data to browser JavaScript
+  res.json(events);
+});
 
 // Define dynamic routes for aquarium zones
 app.get("/zone/:slug", async (req, res) => {

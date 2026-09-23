@@ -6,15 +6,60 @@
   <h1>Plan Your Visit</h1>
   <p>Everything you need to know before visiting Aquarium World.</p>
 
-    <h2>Opening Times</h2>
+  <h2>Opening Times</h2>
 
   <!-- Display weekly opening hours from the database -->
   <div class="opening-times-box">
     <% openingHours.forEach(hour => { %>
-      <p><strong><%= hour.day_name %>:</strong> <%= hour.opening_time %>–<%= hour.closing_time %></p>
+      <p>
+        <strong><%= hour.day_name %>:</strong>
+        <%= hour.opening_time %>–<%= hour.closing_time %>
+      </p>
     <% }) %>
   </div>
 
+  <!-- Travel information links -->
+  <h2>Getting Here</h2>
+  <p>Plan your journey before visiting Aquarium World.</p>
+
+  <div class="transport-links">
+    <article class="transport-card">
+      <h3>By Car</h3>
+      <p>Use an online map to plan your route before travelling.</p>
+      <a
+        href="https://www.google.com/maps"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Plan your route with Google Maps
+      </a>
+    </article>
+
+    <article class="transport-card">
+      <h3>By Bus</h3>
+      <p>Check local bus services and choose the route that suits your journey.</p>
+      <a
+        href="https://www.traveline.info/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Check bus journey options
+      </a>
+    </article>
+
+    <article class="transport-card">
+      <h3>By Train</h3>
+      <p>Check rail times and plan your train journey before you travel.</p>
+      <a
+        href="https://www.nationalrail.co.uk/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Check train journey options
+      </a>
+    </article>
+  </div>
+</section>
 
 <!-- Include the shared footer partial -->
-<%- include('partials/footer') %>
+<%- include('partials/footer' ) %>
