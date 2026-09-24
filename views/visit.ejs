@@ -6,17 +6,30 @@
   <h1>Plan Your Visit</h1>
   <p>Everything you need to know before visiting Aquarium World.</p>
 
-  <h2>Opening Times</h2>
+  <!-- Accessibility information for visitors -->
+  <section class="accessibility-section" aria-labelledby="accessibility-heading">
+    <div class="accessibility-content">
+      <div>
+        <h2 id="accessibility-heading">Accessibility and Inclusion</h2>
+        <p>
+          Aquarium World aims to make every visit welcoming and comfortable for all visitors.
+        </p>
 
-  <!-- Display weekly opening hours from the database -->
-  <div class="opening-times-box">
-    <% openingHours.forEach(hour => { %>
-      <p>
-        <strong><%= hour.day_name %>:</strong>
-        <%= hour.opening_time %>–<%= hour.closing_time %>
-      </p>
-    <% }) %>
-  </div>
+        <ul>
+          <li>Step-free entrance and wheelchair-friendly visitor routes.</li>
+          <li>Accessible viewing areas throughout the aquarium.</li>
+          <li>Seating and rest areas available during the visit.</li>
+          <li>Visitors can contact the Aquarium World team before visiting for additional support.</li>
+        </ul>
+      </div>
+
+      <img
+        class="accessibility-image"
+        src="/images/accessibility/wheelchair-visitor.png"
+        alt="Visitor using a wheelchair enjoying an aquarium display"
+      >
+    </div>
+  </section>
 
   <!-- Travel information links -->
   <h2>Getting Here</h2>
@@ -24,7 +37,8 @@
 
   <div class="transport-links">
     <article class="transport-card">
-      <h3>By Car</h3>
+      <span class="transport-icon" aria-hidden="true">🗺️</span>
+      <h3>Plan Your Route</h3>
       <p>Use an online map to plan your route before travelling.</p>
       <a
         href="https://www.google.com/maps"
@@ -36,6 +50,7 @@
     </article>
 
     <article class="transport-card">
+      <span class="transport-icon" aria-hidden="true">🚌</span>
       <h3>By Bus</h3>
       <p>Check local bus services and choose the route that suits your journey.</p>
       <a
@@ -48,18 +63,31 @@
     </article>
 
     <article class="transport-card">
-      <h3>By Train</h3>
-      <p>Check rail times and plan your train journey before you travel.</p>
+      <span class="transport-icon" aria-hidden="true">🚗</span>
+      <h3>By Car</h3>
+      <p>Use an online map to plan your route before travelling.</p>
       <a
-        href="https://www.nationalrail.co.uk/"
+        href="https://www.google.com/maps"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Check train journey options
+        Plan your car journey
       </a>
     </article>
+  </div>
+
+  <h2>Opening Times</h2>
+
+  <!-- Display weekly opening hours from the database -->
+  <div class="opening-times-box">
+    <% openingHours.forEach(hour => { %>
+      <p>
+        <strong><%= hour.day_name %>:</strong>
+        <%= hour.opening_time %>–<%= hour.closing_time %>
+      </p>
+    <% } ) %>
   </div>
 </section>
 
 <!-- Include the shared footer partial -->
-<%- include('partials/footer' ) %>
+<%- include('partials/footer') %>

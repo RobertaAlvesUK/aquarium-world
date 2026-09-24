@@ -56,7 +56,8 @@ async function loadEvents() {
 
     // Explain when no events match the selected filters
     if (events.length === 0) {
-      eventsStatus.textContent = "No events match the selected year and category.";
+      eventsStatus.textContent =
+        "No events match the selected year and category.";
       return;
     }
 
@@ -75,9 +76,14 @@ async function loadEvents() {
             src="${imagePath}"
             alt=""
           >
-          <p class="event-meta">${formatEventDate(event.event_date)} · ${event.category}</p>
+          <p class="event-meta">
+            ${formatEventDate(event.event_date)} · ${event.category}
+          </p>
           <h2>${event.title}</h2>
           <p>${event.summary}</p>
+          <a class="event-details-link" href="/events/${event.id}">
+            View Event Details
+          </a>
         </article>
       `;
     }).join("");

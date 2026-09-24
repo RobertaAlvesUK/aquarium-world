@@ -1,0 +1,57 @@
+<!-- Include the shared header partial -->
+<%- include('partials/header') %>
+
+<%
+  // Choose the local image that matches this event
+  const eventCategoryImages = {
+    "Conservation Workshop": "/images/aquarium-events/conservation-workshops.png",
+    "After-Dark Tour": "/images/aquarium-events/after-dark-tour.png",
+    "Family Activity": "/images/aquarium-events/family-activities.png",
+    "Educational Talk": "/images/aquarium-events/educational-talks.png",
+    "Seasonal Celebration": "/images/aquarium-events/seasonal-celebration.png"
+  };
+
+  const eventImage = event.title.includes("Christmas")
+    ? "/images/aquarium-events/christmas.png"
+    : eventCategoryImages[event.category];
+
+  // Format the database date for visitors
+  const formattedDate = new Date(`${event.event_date}T12:00:00`).toLocaleDateString(
+    "en-GB",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+  );
+%>
+
+<!-- Individual event information -->
+<section class="event-details-page">
+  <a class="back-link" href="/events">← Back to all events</a>
+
+  <p class="event-meta"><%= formattedDate %> · <%= event.category %></p>
+
+  <h1><%= event.title %></h1>
+
+  <!-- Clearly identify past events -->
+  <% if (hasTakenPlace) { %>
+    <p class="past-event-message">
+      This event has already taken place.
+    </p>
+  <% } %>
+
+  <img
+    class="event-details-image"
+    src="<%= eventImage %>"
+    alt=""
+  >
+
+  <p class="event-details-summary"><%= event.summary %></p>
+
+  <h2>About this event</h2>
+  <p><%= event.details %></p>
+</section>
+
+<!-- Include the shared footer partial -->
+<%- include('partials/footer') %>

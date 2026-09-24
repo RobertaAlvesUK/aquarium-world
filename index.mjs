@@ -44,7 +44,7 @@ app.get("/contact", (req, res) => {
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Check that every form field has a value
+// Check that every form field has a value
   if (!name || !email || !message) {
     res.status(400).render("contact", {
       errorMessage: "Please complete all fields before sending your message.",
@@ -144,6 +144,26 @@ app.get("/events", (req, res) => {
   res.render("events");
 });
 
+// Display details for one Aquarium World event
+app.get("/events/:id", async (req, res) => {
+  // Get the selected event from the SQLite database
+  const event = await get(
+    "SELECT * FROM events WHERE id = ?",
+    [req.params.id]
+  );
+
+  // Show the custom 404 page when an event does not exist
+  if (!event) {
+    res.status(404).render("404");
+    return;
+  }
+
+  // Events from 2025 are displayed as past events
+  const hasTakenPlace = event.event_year < 2026;
+
+  // Render the individual event details page
+  res.render("event-details", { event, hasTakenPlace });
+});
 
 // Return matching aquarium animals as JSON data
 app.get("/api/exhibits", async (req, res) => {

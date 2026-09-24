@@ -41,7 +41,7 @@
   <div class="exhibit-grid">
     <% exhibits.forEach(exhibit => { %>
       <%
-        // Find the matching image for this database exhibit
+        // Find the matching local image for this database exhibit
         const zoneExhibitImages = exhibitImages[zone.slug] || {};
         const exhibitImage = zoneExhibitImages[exhibit.name];
       %>
@@ -50,7 +50,7 @@
         <h3><%= exhibit.name %></h3>
         <p><%= exhibit.description %></p>
 
-        <!-- Show the local animal image when one is available -->
+        <!-- Show the matching image below the animal description -->
         <% if (exhibitImage) { %>
           <img
             class="exhibit-image"
