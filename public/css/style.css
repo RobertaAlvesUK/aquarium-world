@@ -1143,3 +1143,253 @@ main:focus {
     margin: 1rem 0 0;
   }
 }
+/* Remove the empty gap above the Homepage hero */
+.hero {
+  margin-top: -2.5rem;
+}
+/* Give the Homepage content area a warmer aquarium feel */
+.home-features {
+  max-width: 1180px;
+  margin: 2.5rem auto 0;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid #9eddd8;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(139, 232, 224, 0.45),
+      transparent 42%
+    ),
+    linear-gradient(135deg, #dff8f6 0%, #ccefed 52%, #e9fbfa 100%);
+  box-shadow: 0 12px 30px rgba(6, 59, 75, 0.12);
+}
+
+/* Make the Home section title clearer */
+.home-features > h2 {
+  margin-bottom: 2rem;
+  padding-left: 0;
+  border-left: none;
+  color: #063b4b;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  text-align: center;
+}
+
+/* Separate Experiences, Activities and Events visually */
+.home-features > h3 {
+  width: fit-content;
+  margin: 2.5rem 0 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background-color: #063b4b;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+/* Keep the first heading close to the main Home title */
+.home-features > h2 + h3 {
+  margin-top: 0;
+}
+
+/* Give the clickable cards a softer, more welcoming surface */
+.home-features .feature-card {
+  border-color: rgba(8, 127, 123, 0.65);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 18px rgba(6, 59, 75, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Lift cards slightly on hover or keyboard focus */
+.home-features .feature-card:hover,
+.home-features .feature-card:focus {
+  background-color: #ffffff;
+  transform: translateY(-5px);
+}
+
+/* Keep the Home feature area comfortable on phones */
+@media (max-width: 700px) {
+  .home-features {
+    margin-top: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .home-features > h3 {
+    margin-top: 2rem;
+  }
+}
+/* Divide the Homepage content into clear aquarium-themed sections */
+.home-features {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep content above the decorative bubbles */
+.home-features > h2,
+.home-category {
+  position: relative;
+  z-index: 1;
+}
+
+/* Create separate panels for Experiences, Activities and Events */
+.home-category {
+  padding: 1.5rem;
+  border: 1px solid rgba(8, 127, 123, 0.3);
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.42);
+}
+
+.home-category + .home-category {
+  margin-top: 2rem;
+}
+
+/* Style the title of each Homepage category */
+.home-category h3 {
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: #063b4b;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+/* Keep the Events card centred within its section */
+.home-category--events .feature-cards {
+  justify-content: center;
+}
+
+/* Add transparent bubbles rising behind the Homepage panels */
+.home-features::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: 360px;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 8% 90%, transparent 0 8px, rgba(210, 255, 255, 0.65) 9px 10px, transparent 11px),
+    radial-gradient(circle at 18% 72%, transparent 0 4px, rgba(210, 255, 255, 0.55) 5px 6px, transparent 7px),
+    radial-gradient(circle at 31% 94%, transparent 0 12px, rgba(210, 255, 255, 0.6) 13px 14px, transparent 15px),
+    radial-gradient(circle at 44% 65%, transparent 0 6px, rgba(210, 255, 255, 0.58) 7px 8px, transparent 9px),
+    radial-gradient(circle at 59% 88%, transparent 0 10px, rgba(210, 255, 255, 0.6) 11px 12px, transparent 13px),
+    radial-gradient(circle at 72% 75%, transparent 0 5px, rgba(210, 255, 255, 0.55) 6px 7px, transparent 8px),
+    radial-gradient(circle at 86% 92%, transparent 0 9px, rgba(210, 255, 255, 0.62) 10px 11px, transparent 12px),
+    radial-gradient(circle at 95% 55%, transparent 0 4px, rgba(210, 255, 255, 0.52) 5px 6px, transparent 7px);
+  background-repeat: repeat;
+  background-size: 330px 360px;
+  animation: home-bubbles-rise 9s linear infinite;
+}
+
+/* Move the decorative bubbles continuously upward */
+@keyframes home-bubbles-rise {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 -360px;
+  }
+}
+
+/* Respect visitors who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+  .home-features::before {
+    animation: none;
+  }
+}
+
+/* Keep the category panels comfortable on phones */
+@media (max-width: 700px) {
+  .home-category {
+    padding: 1.25rem 1rem;
+  }
+}
+/* Display the four Experience cards in one row on wider screens */
+@media (min-width: 1100px) {
+  .experience-cards {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+
+  .experience-cards .feature-card {
+    flex: 1 1 0;
+    max-width: none;
+    min-height: 260px;
+    padding: 1.25rem 1rem;
+  }
+
+  .experience-cards .feature-icon {
+    font-size: 2.2rem;
+  }
+}
+/* Use a softer aqua surface instead of large white Homepage panels */
+.home-category {
+  background: linear-gradient(
+    135deg,
+    rgba(221, 249, 247, 0.68),
+    rgba(190, 238, 234, 0.5)
+  );
+}
+
+/* Make the Homepage cards feel less stark white */
+.home-features .feature-card {
+  background-color: rgba(239, 255, 254, 0.9);
+}
+
+/* Keep the lower Homepage cards compact and balanced on desktop */
+@media (min-width: 900px) {
+  .home-category--activities .feature-card,
+  .home-category--events .feature-card {
+    flex: 0 1 300px;
+    min-height: 210px;
+    padding: 1.25rem;
+  }
+
+  .home-category--activities .feature-cards {
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .home-category--events .feature-card {
+    flex-basis: 320px;
+  }
+}
+/* Extend the aqua Homepage background across wider desktop screens */
+@media (min-width: 900px) {
+  .home-features {
+    width: 100vw;
+    max-width: none;
+    margin-top: 2.5rem;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    border-radius: 0;
+    padding-right: clamp(2rem, 8vw, 10rem);
+    padding-left: clamp(2rem, 8vw, 10rem);
+  }
+
+  /* Keep the headings and card sections comfortably centred */
+  .home-features > h2,
+  .home-features > .home-category {
+    max-width: 1180px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
+
+/* Keep cards bright without making the lower sections feel cold */
+.home-category--activities .feature-card,
+.home-category--events .feature-card {
+  background-color: rgba(255, 252, 247, 0.92);
+}
+
+
+/* Keep lower cards soft and bright */
+.home-category--activities .feature-card,
+.home-category--events .feature-card {
+  background-color: rgba(249, 255, 252, 0.94);
+}
