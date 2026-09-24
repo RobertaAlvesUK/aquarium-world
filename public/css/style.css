@@ -150,7 +150,7 @@ footer img {
   padding: 1rem 2rem 3rem;
   border: none;
   border-radius: 0;
-  background-image: url("/images/home/hero-banner.png");
+  background-image: url("/images/home/6.png");
   background-position: center;
   background-size: cover;
   box-shadow: none;
@@ -720,5 +720,426 @@ main:focus {
 
   .accessibility-image {
     height: 280px;
+  }
+}
+/* Refresh the Homepage hero with a clearer text panel */
+.hero {
+  position: relative;
+  min-height: 520px;
+  padding: 4rem clamp(1.5rem, 8vw, 8rem);
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-position: center;
+}
+
+/* Add a subtle overlay so the hero image stays visible but text remains readable */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 37, 50, 0.68) 0%,
+    rgba(2, 37, 50, 0.34) 45%,
+    rgba(2, 37, 50, 0.08) 100%
+  );
+}
+
+/* Keep the text above the image overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(183, 232, 229, 0.65);
+  border-radius: 14px;
+  background-color: rgba(6, 59, 75, 0.78);
+  box-shadow: 0 10px 24px rgba(2, 37, 50, 0.25);
+}
+
+/* Use a clear modern heading rather than a handwritten style */
+.hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* Style the short hero message */
+.hero-text {
+  margin: 0.85rem 0 0;
+  color: #d9ffff;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 600;
+}
+
+/* Keep the hero panel comfortable on phones */
+@media (max-width: 700px) {
+  .hero {
+    min-height: 440px;
+    padding: 2rem 1.25rem;
+    background-position: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-top: 1rem;
+    padding: 1.35rem;
+  }
+}
+/* Move the homepage hero text panel slightly to the right */
+.hero {
+  justify-content: center;
+}
+
+.hero-content {
+  margin-left: 14rem;
+}
+/* Raise the hero text panel slightly on larger screens */
+@media (min-width: 701px) {
+  .hero-content {
+    margin-top: -2rem;
+  }
+}
+/* Add subtle rising bubbles beside the shark in the Homepage hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  bottom: 0;
+  z-index: 0;
+  width: 260px;
+  height: 360px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(255, 255, 255, 0.45) 0 2px,
+      rgba(200, 255, 255, 0.14) 3px 8px,
+      rgba(255, 255, 255, 0.5) 9px 10px,
+      transparent 11px
+    ),
+    radial-gradient(
+      circle at 55% 68%,
+      rgba(255, 255, 255, 0.4) 0 2px,
+      rgba(200, 255, 255, 0.12) 3px 6px,
+      rgba(255, 255, 255, 0.45) 7px 8px,
+      transparent 9px
+    ),
+    radial-gradient(
+      circle at 32% 48%,
+      rgba(255, 255, 255, 0.45) 0 2px,
+      rgba(200, 255, 255, 0.12) 3px 5px,
+      rgba(255, 255, 255, 0.45) 6px 7px,
+      transparent 8px
+    ),
+    radial-gradient(
+      circle at 76% 35%,
+      rgba(255, 255, 255, 0.35) 0 1px,
+      rgba(200, 255, 255, 0.1) 2px 4px,
+      rgba(255, 255, 255, 0.4) 5px 6px,
+      transparent 7px
+    );
+
+  animation: hero-bubbles-rise 9s ease-in infinite;
+}
+
+/* Move the bubble group gently upward */
+@keyframes hero-bubbles-rise {
+  0% {
+    transform: translateY(90px);
+    opacity: 0;
+  }
+
+  15%,
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-130px);
+    opacity: 0;
+  }
+}
+
+/* Avoid unnecessary motion for visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero::after {
+    animation: none;
+    opacity: 0.55;
+    transform: none;
+  }
+}
+
+/* Keep the hero simpler on small screens */
+@media (max-width: 700px) {
+  .hero::after {
+    display: none;
+  }
+}
+/* Create a continuous stream of transparent bubbles beside the shark */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2%;
+  z-index: 0;
+  width: 380px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.9;
+  background:
+    radial-gradient(
+      circle at 24px 130px,
+      transparent 0 7px,
+      rgba(210, 255, 255, 0.55) 7.5px 8.5px,
+      transparent 9px
+    ),
+    radial-gradient(
+      circle at 80px 70px,
+      transparent 0 4px,
+      rgba(210, 255, 255, 0.48) 4.5px 5.5px,
+      transparent 6px
+    ),
+    radial-gradient(
+      circle at 145px 180px,
+      transparent 0 10px,
+      rgba(210, 255, 255, 0.5) 10.5px 11.5px,
+      transparent 12px
+    ),
+    radial-gradient(
+      circle at 205px 95px,
+      transparent 0 5px,
+      rgba(210, 255, 255, 0.45) 5.5px 6.5px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at 270px 220px,
+      transparent 0 8px,
+      rgba(210, 255, 255, 0.5) 8.5px 9.5px,
+      transparent 10px
+    ),
+    radial-gradient(
+      circle at 330px 50px,
+      transparent 0 4px,
+      rgba(210, 255, 255, 0.42) 4.5px 5.5px,
+      transparent 6px
+    );
+
+  background-repeat: repeat-y;
+  background-size:
+    100px 260px,
+    145px 310px,
+    215px 360px,
+    120px 240px,
+    280px 410px,
+    340px 290px;
+
+  animation: hero-bubbles-stream 4.5s linear infinite;
+}
+
+/* Move the repeating bubble pattern upward without pauses */
+@keyframes hero-bubbles-stream {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+
+  to {
+    background-position:
+      0 -260px,
+      0 -310px,
+      0 -360px,
+      0 -240px,
+      0 -410px,
+      0 -290px;
+  }
+}
+
+/* Respect visitors who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+  .hero::after {
+    animation: none;
+  }
+}
+/* Place decorative bubbles across the full Homepage hero */
+.hero-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Create transparent bubbles with a soft reflective edge */
+.hero-bubbles span {
+  position: absolute;
+  bottom: -90px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(220, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(180, 245, 255, 0.04);
+  box-shadow:
+    inset 3px 3px 5px rgba(255, 255, 255, 0.28),
+    0 0 8px rgba(184, 247, 255, 0.2);
+  animation: realistic-bubbles-rise linear infinite;
+}
+
+/* Give each bubble a different size, position and speed */
+.hero-bubbles span:nth-child(1) {
+  left: 5%;
+  width: 12px;
+  height: 12px;
+  animation-duration: 6s;
+  animation-delay: -1s;
+}
+
+.hero-bubbles span:nth-child(2) {
+  left: 14%;
+  width: 24px;
+  height: 24px;
+  animation-duration: 8s;
+  animation-delay: -4s;
+}
+
+.hero-bubbles span:nth-child(3) {
+  left: 25%;
+  width: 15px;
+  height: 15px;
+  animation-duration: 5.5s;
+  animation-delay: -2s;
+}
+
+.hero-bubbles span:nth-child(4) {
+  left: 38%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 9s;
+  animation-delay: -6s;
+}
+
+.hero-bubbles span:nth-child(5) {
+  left: 48%;
+  width: 10px;
+  height: 10px;
+  animation-duration: 5s;
+  animation-delay: -3s;
+}
+
+.hero-bubbles span:nth-child(6) {
+  left: 58%;
+  width: 20px;
+  height: 20px;
+  animation-duration: 7s;
+  animation-delay: -5s;
+}
+
+.hero-bubbles span:nth-child(7) {
+  left: 68%;
+  width: 13px;
+  height: 13px;
+  animation-duration: 6.5s;
+  animation-delay: -2.5s;
+}
+
+.hero-bubbles span:nth-child(8) {
+  left: 76%;
+  width: 28px;
+  height: 28px;
+  animation-duration: 9.5s;
+  animation-delay: -7s;
+}
+
+.hero-bubbles span:nth-child(9) {
+  left: 84%;
+  width: 16px;
+  height: 16px;
+  animation-duration: 6s;
+  animation-delay: -4s;
+}
+
+.hero-bubbles span:nth-child(10) {
+  left: 91%;
+  width: 11px;
+  height: 11px;
+  animation-duration: 5.5s;
+  animation-delay: -1.5s;
+}
+
+.hero-bubbles span:nth-child(11) {
+  left: 32%;
+  width: 18px;
+  height: 18px;
+  animation-duration: 7.5s;
+  animation-delay: -6s;
+}
+
+.hero-bubbles span:nth-child(12) {
+  left: 64%;
+  width: 9px;
+  height: 9px;
+  animation-duration: 4.8s;
+  animation-delay: -3s;
+}
+
+/* Move bubbles upward with a small side-to-side movement */
+@keyframes realistic-bubbles-rise {
+  0% {
+    transform: translate(0, 0) scale(0.85);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: translate(14px, -310px) scale(1);
+  }
+
+  90% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translate(-10px, -660px) scale(1.12);
+    opacity: 0;
+  }
+}
+
+/* Keep the hero readable and motion-free if requested */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bubbles span {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+/* Avoid clutter on smaller phone screens */
+@media (max-width: 700px) {
+  .hero-bubbles span:nth-child(n + 7) {
+    display: none;
+  }
+}
+/* Keep the hero text panel safely positioned on mobile */
+@media (max-width: 700px) {
+  .hero {
+    justify-content: flex-end;
+  }
+
+  .hero-content {
+    margin: 1rem 0 0;
   }
 }
